@@ -34,8 +34,9 @@ module.exports = function (CoffeeShop) {
     },
   });
 
-  CoffeeShop.greet = async function () {
-    return 'Hello from this Coffee Shop';
+  CoffeeShop.greet = function (cb) {
+    setTimeout(() => cb(null, 'Hello from this Coffee Shop'), 5000);
+    return;
   };
   CoffeeShop.remoteMethod('greet', {
     http: {path: '/greet', verb: 'get'},
